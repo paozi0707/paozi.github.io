@@ -215,40 +215,33 @@
         window.addEventListener('load', function() {
             const backgroundMusic = document.getElementById('backgroundMusic');
             backgroundMusic.play();
-        });
-        
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel img');
-        const totalSlides = slides.length;
 
-        document.getElementById('nextBtn').addEventListener('click', function() {
-            slides[currentSlide].style.display = 'none';
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].style.display = 'block';
-        });
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel img');
+            const totalSlides = slides.length;
 
-        document.getElementById('prevBtn').addEventListener('click', function() {
-            slides[currentSlide].style.display = 'none';
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            slides[currentSlide].style.display = 'block';
-        });
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                slides[currentSlide].style.display = 'none';
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].style.display = 'block';
+            });
 
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
-        const backgroundMusic = document.getElementById('backgroundMusic');
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                slides[currentSlide].style.display = 'none';
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                slides[currentSlide].style.display = 'block';
+            });
 
-        playBtn.addEventListener('click', function() {
-            backgroundMusic.play();
-        });
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
 
-        pauseBtn.addEventListener('click', function() {
-            backgroundMusic.pause();
-        });
+            playBtn.addEventListener('click', function() {
+                backgroundMusic.play();
+            });
 
-        // Auto-play music when the page loads
-        window.addEventListener('load', function() {
-            backgroundMusic.play();
+            pauseBtn.addEventListener('click', function() {
+                backgroundMusic.pause();
+            });
         });
     </script>
 </body>
