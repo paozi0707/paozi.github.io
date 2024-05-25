@@ -212,6 +212,12 @@
     <audio id="backgroundMusic" src="Throwaway.mp3" autoplay loop></audio>
 
     <script>
+        window.addEventListener('load', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play();
+        });
+        
+    <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel img');
         const totalSlides = slides.length;
