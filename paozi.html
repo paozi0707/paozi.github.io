@@ -203,6 +203,7 @@
     <section class="audio-controls">
         <button id="playBtn">播放音乐</button>
         <button id="pauseBtn">暂停音乐</button>
+        <button id="restartBtn">重新播放</button> <!-- 新增的重新播放按钮 -->
     </section>
     
     <footer>
@@ -214,26 +215,9 @@
     <script>
         window.addEventListener('load', function() {
             const backgroundMusic = document.getElementById('backgroundMusic');
-            backgroundMusic.play();
-
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.carousel img');
-            const totalSlides = slides.length;
-
-            document.getElementById('nextBtn').addEventListener('click', function() {
-                slides[currentSlide].style.display = 'none';
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].style.display = 'block';
-            });
-
-            document.getElementById('prevBtn').addEventListener('click', function() {
-                slides[currentSlide].style.display = 'none';
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                slides[currentSlide].style.display = 'block';
-            });
-
             const playBtn = document.getElementById('playBtn');
             const pauseBtn = document.getElementById('pauseBtn');
+            const restartBtn = document.getElementById('restartBtn'); // 获取重新播放按钮
 
             playBtn.addEventListener('click', function() {
                 backgroundMusic.play();
@@ -241,6 +225,11 @@
 
             pauseBtn.addEventListener('click', function() {
                 backgroundMusic.pause();
+            });
+
+            restartBtn.addEventListener('click', function() { // 重新播放按钮的点击事件
+                backgroundMusic.currentTime = 0; // 重新设置音频当前播放时间为0
+                backgroundMusic.play(); // 重新播放音频
             });
         });
     </script>
