@@ -42,7 +42,7 @@
         }
         .showcase {
             min-height: 400px;
-            background: url('https://github.com/paozi0707/paozi.github.io/blob/main/background.png?raw=true') no-repeat center center/cover;
+            background: url('https://w.wallhaven.cc/full/x6/wallhaven-x6yzoz.jpg') no-repeat center center/cover;
             text-align: center;
             color: #fff;
         }
@@ -101,6 +101,18 @@
             width: 150px;
             height: 150px;
         }
+        .audio-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .audio-controls button {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -128,10 +140,10 @@
     <section class="content" id="about">
         <div class="container">
             <h2>个人简介</h2>
-            <img src="https://github.com/paozi0707/paozi.github.io/blob/main/head.png?raw=true" alt="Profile Image" class="profile-img">
+            <img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-kxg8xm_1280x720.png" alt="Profile Image" class="profile-img">
             <p>我是狍子，一个异想天开的灵魂，可能不怎么喝水，但绝对喜欢玩游戏。目前我正在用我古怪的滑稽动作来兼顾学生生活！</p>
         </div>
-    </section>   
+    </section>    
     
     <section class="content" id="experience">
         <div class="container">
@@ -166,8 +178,8 @@
     <section class="content" id="contact">
         <div class="container">
             <h2>联系方式</h2>
-            <p>电子邮件：buxiangheshui@gpaozi.com</p>
-            <p>社交媒体：<a href="https://space.bilibili.com/357465976/?spm_id_from=333.999.0.0" target="_blank">B站：狍子</a></p>
+            <p>电子邮件：ym2360565405@gmail.com</p>
+            <p>社交媒体：<a href="https://space.bilibili.com/297119271" target="_blank">B站：罪恶的狍子</a></p>
         </div>
     </section>
     
@@ -175,18 +187,11 @@
         <div class="container">
             <h2>图片轮播</h2>
             <div class="carousel">
-                <a href="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-kxg8xm_1280x720.png?raw=true">
-                    <img src="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-kxg8xm_1280x720.png?raw=true" alt="Image 1">
-                </a>
-                <a href="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-3l828y_1280x720.png?raw=true">
-                    <img src="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-3l828y_1280x720.png?raw=true" alt="Image 2" style="display: none;">
-                </a>
-                <a href="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-exq7wo_1280x720.png?raw=true">
-                    <img src="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-exq7wo_1280x720.png?raw=true" alt="Image 3" style="display: none;">
-                </a>
-                <a href="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-o5m5p5_1280x720.png?raw=true">
-                    <img src="https://github.com/paozi0707/paozi.github.io/blob/main/wallhaven-o5m5p5_1280x720.png?raw=true" alt="Image 4" style="display: none;">
-                </a>
+                <a href="https://wallhaven.cc/w/x6yzoz"><img src="https://w.wallhaven.cc/full/x6/wallhaven-x6yzoz.jpg" alt="Image 1"></a>
+                <a href="https://wallhaven.cc/w/3l828y"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-3l828y_1280x720.png" alt="Image 2" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/zyj28v"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-exq7wo_1280x720.png" alt="Image 3" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/zyj8gw"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-o5m5p5_1280x720.png" alt="Image 4" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/l8vp7y"><img src="https://w.wallhaven.cc/full/l8/wallhaven-l8vp7y.jpg" alt="Image 5" style="display: none;"></a>
                 <div class="carousel-buttons">
                     <button id="prevBtn">&#10094;</button>
                     <button id="nextBtn">&#10095;</button>
@@ -194,11 +199,18 @@
             </div>
         </div>
     </section>    
+
+    <section class="audio-controls">
+        <button id="playBtn">播放音乐</button>
+        <button id="pauseBtn">暂停音乐</button>
+    </section>
     
     <footer>
         <p>狍子的个人网页 &copy; 2024</p>
     </footer>
     
+    <audio id="backgroundMusic" src="https://kuwo.cn/play_detail/71123962" autoplay loop></audio>
+
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel img');
@@ -214,6 +226,23 @@
             slides[currentSlide].style.display = 'none';
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             slides[currentSlide].style.display = 'block';
+        });
+
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        playBtn.addEventListener('click', function() {
+            backgroundMusic.play();
+        });
+
+        pauseBtn.addEventListener('click', function() {
+            backgroundMusic.pause();
+        });
+
+        // Auto-play music when the page loads
+        window.addEventListener('load', function() {
+            backgroundMusic.play();
         });
     </script>
 </body>
