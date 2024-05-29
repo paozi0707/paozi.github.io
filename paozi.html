@@ -10,6 +10,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f0f4f8;
             color: #333;
         }
         .container {
@@ -40,25 +41,10 @@
             padding: 0 20px;
         }
         .showcase {
-            position: relative;
             min-height: 400px;
-            overflow: hidden;
+            background: url('https://raw.githubusercontent.com/paozi0707/paozi.github.io/main/background.png') no-repeat center center/cover;
             text-align: center;
             color: #fff;
-        }
-        .showcase video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-        }
-        .showcase .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
         }
         .showcase h1 {
             margin-top: 100px;
@@ -145,20 +131,16 @@
     </header>
     
     <section class="showcase">
-        <video autoplay muted loop>
-            <source src="https://github.com/paozi0707/paozi.github.io/raw/main/backvedio.mp4" type="video/mp4">
-            您的浏览器不支持HTML5视频标签。
-        </video>
-        <div class="content">
+        <div class="container">
             <h1>欢迎来到我的个人网页</h1>
-            <p>沙雕的正经人，不爱喝水，爱打游戏</p>
+            <p>一个沙雕的正经人，不爱喝水，爱打游戏</p>
         </div>
     </section>
     
     <section class="content" id="about">
         <div class="container">
             <h2>个人简介</h2>
-            <img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-kxg8xm_1280x720.png" alt="Profile Image" class="profile-img">
+            <img src="https://raw.githubusercontent.com/paozi0707/paozi.github.io/main/headground.png" alt="Profile Image" class="profile-img">
             <p>我是狍子，一个异想天开的灵魂，可能不怎么喝水，但绝对喜欢玩游戏。目前我正在用我古怪的滑稽动作来兼顾学生生活！</p>
         </div>
     </section>    
@@ -166,7 +148,7 @@
     <section class="content" id="experience">
         <div class="container">
             <h2>工作经历</h2>
-            <p>超市收银员，创飞地球人</p>
+            <p>垃圾站收银员，创飞地球人</p>
         </div>
     </section>
     
@@ -196,19 +178,19 @@
     <section class="content" id="contact">
         <div class="container">
             <h2>联系方式</h2>
-            <p>电子邮件：ym2360565405@gmail.com</p>
-            <p>社交媒体：<a href="https://space.bilibili.com/297119271" target="_blank">B站：罪恶的狍子</a></p>
+            <p>电子邮件：buxiangheshui@paozi.com</p>
+            <p>社交媒体：<a href="https://www.bilibili.com/list/ml1405483071?spm_id_from=333.999.0.0&oid=1304533783&bvid=BV1qM4m1C7Y1" target="_blank">B站：狍子</a></p>
         </div>
     </section>
     
     <section class="content">
         <div class="container">
-            <h2>图片轮播</h2>
+            <h2>美图秀秀</h2>
             <div class="carousel">
                 <a href="https://wallhaven.cc/w/x6yzoz"><img src="https://w.wallhaven.cc/full/x6/wallhaven-x6yzoz.jpg" alt="Image 1"></a>
-                <a href="https://wallhaven.cc/w/3l828y"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-3l828y_1280x720.png" alt="Image 2" style="display: none;"></a>
-                <a href="https://wallhaven.cc/w/zyj28v"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-exq7wo_1280x720.png" alt="Image 3" style="display: none;"></a>
-                <a href="https://wallhaven.cc/w/zyj8gw"><img src="https://github.com/paozi0707/paozi.github.io/raw/main/wallhaven-o5m5p5_1280x720.png" alt="Image 4" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/3l828y"><img src="https://raw.githubusercontent.com/paozi0707/paozi.github.io/main/wallhaven-3l828y_1280x720.png" alt="Image 2" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/zyj28v"><img src="https://raw.githubusercontent.com/paozi0707/paozi.github.io/main/wallhaven-exq7wo_1280x720.png" alt="Image 3" style="display: none;"></a>
+                <a href="https://wallhaven.cc/w/zyj8gw"><img src="https://raw.githubusercontent.com/paozi0707/paozi.github.io/main/wallhaven-o5m5p5_1280x720.png" alt="Image 4" style="display: none;"></a>
                 <a href="https://wallhaven.cc/w/l8vp7y"><img src="https://w.wallhaven.cc/full/l8/wallhaven-l8vp7y.jpg" alt="Image 5" style="display: none;"></a>
                 <div class="carousel-buttons">
                     <button id="prevBtn">&#10094;</button>
@@ -221,6 +203,7 @@
     <section class="audio-controls">
         <button id="playBtn">播放音乐</button>
         <button id="pauseBtn">暂停音乐</button>
+        <button id="restartBtn">重新播放</button> <!-- 新增的重新播放按钮 -->
     </section>
     
     <footer>
@@ -230,6 +213,7 @@
     <audio id="backgroundMusic" src="Throwaway.mp3" autoplay loop></audio>
 
     <script>
+        // 图片轮播部分
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel img');
         const totalSlides = slides.length;
@@ -246,8 +230,10 @@
             slides[currentSlide].style.display = 'block';
         });
 
+        // 音乐控制部分
         const playBtn = document.getElementById('playBtn');
         const pauseBtn = document.getElementById('pauseBtn');
+        const restartBtn = document.getElementById('restartBtn');
         const backgroundMusic = document.getElementById('backgroundMusic');
 
         playBtn.addEventListener('click', function() {
@@ -258,7 +244,8 @@
             backgroundMusic.pause();
         });
 
-        window.addEventListener('load', function() {
+        restartBtn.addEventListener('click', function() {
+            backgroundMusic.currentTime = 0;
             backgroundMusic.play();
         });
     </script>
